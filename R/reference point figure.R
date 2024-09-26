@@ -6,8 +6,8 @@ rp <- reference.points(2526)
 language <- language("fr")
 
 # Define current year's biomass estimates:
-BMMGE95.mu    <- 67703  # Kriged commercial biomass.
-BMMGE95.sigma <- 4578   # Standard error of kriged commercial biomass
+BMMGE95.mu    <- 51786  # Kriged commercial biomass.
+BMMGE95.sigma <- 3333.7 # Standard error of kriged commercial biomass
 ER  <- harvest.control.rule(BMMGE95.mu, species = 2526)
 
 Blim <- rp[["Blim"]]    # Recovery biomass limit reference pont.
@@ -32,17 +32,16 @@ if (language == "english") Busr.str <- expression('B'[usr]*' = 41400 t')
 if (language == "french")  Busr.str <- expression('B'[nrs]*' = 41400 t')
 
 # Data:
-x <- data.frame(year = 1997:2023,
+x <- data.frame(year = 1997:2024,
                 landings = c(17.66, 13.86, 15.52, 19.18, 18.51, 26.18, 21.16, 31.66, 36.08, 29.12, 26.87, 24.46,
                              23.64, 9.549, 10.71, 21.96, 26.05, 24.44, 25.91, 21.71, 43.656, 24.260, 31.707, 28.156, 24.489,
-                             31.661, 35.422),  
+                             31.661, 35.422, 26.126),  
                 com = c(64.5184, 64.5184, 57.8125, 56.7565, 50.621, 60.3283, 79.2275, 84.4475, 103.1457, 82.5652,
                         73.6453, 66.3714, 52.9209, 31.0153, 35.9294, 62.8407, 74.7775, 66.709, 67.9896, 58.9269,
-                        98.3942, 65.7376, 80.746, 79.06550, 77.748, 80.950, 85.532),
+                        98.3942, 65.7376, 80.746, 79.06550, 77.748, 80.950, 85.532, 67.703),
                 com.sigma = c(5.6785, 5.6785, 6.6617, 4.9687, 4.8133, 5.7457, 6.0774, 5.8931, 5.699, 4.8234, 4.2417, 3.3922, 3.0653,
                               1.8656, 2.0665, 3.6529, 5.3264, 6.8484, 4.3836, 4.0608, 6.0042, 4.578, 5.302936, 5.364855, 5.397385, 5.5918,
-                              5.83920))
-
+                              5.83920, 4.5777))
 
 # Commercial confidence intervals:
 x$com.lci <- x$com - 1.96 * x$com.sigma
@@ -56,7 +55,7 @@ x$er.uci <- x$landings / x$com.lci
 x <- x[-1, ]
 
 png(file = paste0("results/figures/reference point figure alternative ", max(x$year), " - ", language.str, ".png"),
-    res = 400, units = "in", height = 5, width = 7)
+    res = 500, units = "in", height = 5, width = 7)
 
 # Base plot:
 plot(c(0, 120), c(0, 50), type ="n", xlab = "", ylab = "", xaxs = "i", yaxs = "i", xaxt = "n", cex.axis = 0.8)
