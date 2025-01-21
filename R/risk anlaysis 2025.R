@@ -3,9 +3,9 @@ library(gulf.graphics)
 
 # Get reference points:
 rp <- reference.points(2526)
-Blim <- rp[["Blim"]]    # Recovery biomass limit reference pont.
-Busr <- rp[["Busr"]]    # Upper stock reference biomass.
-Flim <- rp[["Flim"]]    # Limit reference point for fishing removal rate.
+Blim <- rp[["Blim"]] # Recovery biomass limit reference point.
+Busr <- rp[["Busr"]] # Upper stock reference biomass.
+Flim <- rp[["Flim"]] # Limit reference point for fishing removal rate.
 
 # Define output language:
 language <- language("fr")
@@ -46,7 +46,7 @@ rlnorm <- function(n, mu, sigma){
 # Warning! Landings and residual biomass estimates have the same year, but total biomass is offset by one year
 data <- data.frame(year = 1997:2024,
                    landings = c(17.66, 13.86, 15.52, 19.18, 18.51, 26.18, 21.16, 31.66, 36.08, 29.12, 26.87, 24.46, 23.64, 9.549,
-                                10.71, 21.96, 26.05, 24.44, 25.91, 21.71, 43.656, 24.260, 31.707, 28.156, 24.479, 31.661, 35.422, 26.126 ),
+                                10.71, 21.96, 26.05, 24.44, 25.91, 21.71, 43.656, 24.260, 31.707, 28.156, 24.479, 31.661, 35.422, 25.328),
                    MMGE95SC345.mu = c(27.6882, 28.2949, 31.1769, 9.9793, 17.6121, 13.0600, 26.9933, 21.2590, 23.4963, 19.6210, 26.8285,
                                       20.9811, 10.4538, 15.4901, 33.6790, 25.6145, 27.0918, 23.8632, 24.1063, 24.3094, 14.6504, 21.4315,
                                       20.291, 19.1073, 19.1438, 17.388, 24.393, 17.091),
@@ -55,7 +55,7 @@ data <- data.frame(year = 1997:2024,
                                          1.852368, 2.121, 1.480451),
                    MMGE95.mu = c(64.5184, 64.5184, 57.8125, 56.7565, 50.621, 60.3283, 79.2275, 84.4475, 103.1457, 82.5652, 73.6453, 66.3714,
                                  52.9209, 31.0153, 35.9294, 62.8407, 74.7775, 66.709, 67.9896, 58.9269, 98.3942, 65.7376, 80.746, 79.06550, 
-                                 77.74807, 80.9498, 85.532, 67.703),
+                                 77.74807, 80.9498, 85.532, 67.731),
                    MMGE95.sigma = c(5.6785, 5.6785, 6.6617, 4.9687, 4.8133, 5.7457, 6.0774, 5.8931, 5.699, 4.8234, 4.2417, 3.3922, 3.0653,
                                     1.8656, 2.0665, 3.6529, 5.3264, 6.8484, 4.3836, 4.0608, 6.0042, 4.578, 5.302936, 5.364855, 5.397385, 5.5918,
                                     5.83920, 4.5777))
@@ -110,7 +110,7 @@ tab <- data.frame(catch = catch,
                   lci   = apply(repvec(BREC.2025, ncol = length(catch)) + BREM.2025, 2, quantile, p = 0.025),
                   uci   = apply(repvec(BREC.2025, ncol = length(catch)) + BREM.2025, 2, quantile, p = 0.975))
 
-language <- language("bi")
+language <- language("fr")
 
 # Probability of exceeding ER plot:
 if (language == "english"){
