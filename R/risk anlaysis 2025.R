@@ -7,6 +7,9 @@ Blim <- rp[["Blim"]] # Recovery biomass limit reference point.
 Busr <- rp[["Busr"]] # Upper stock reference biomass.
 Flim <- rp[["Flim"]] # Limit reference point for fishing removal rate.
 
+# Flim      Blim      Busr      Bmax 
+# 3.460e-01 1.000e+04 4.140e+04 1.034e+05 
+
 # Define output language:
 language <- language("fr")
 
@@ -46,7 +49,7 @@ rlnorm <- function(n, mu, sigma){
 # Warning! Landings and residual biomass estimates have the same year, but total biomass is offset by one year
 data <- data.frame(year = 1997:2024,
                    landings = c(17.66, 13.86, 15.52, 19.18, 18.51, 26.18, 21.16, 31.66, 36.08, 29.12, 26.87, 24.46, 23.64, 9.549,
-                                10.71, 21.96, 26.05, 24.44, 25.91, 21.71, 43.656, 24.260, 31.707, 28.156, 24.479, 31.661, 35.422, 25.328),
+                                10.71, 21.96, 26.05, 24.44, 25.91, 21.71, 43.656, 24.260, 31.707, 28.156, 24.479, 31.661, 35.404, 25.328),
                    MMGE95SC345.mu = c(27.6882, 28.2949, 31.1769, 9.9793, 17.6121, 13.0600, 26.9933, 21.2590, 23.4963, 19.6210, 26.8285,
                                       20.9811, 10.4538, 15.4901, 33.6790, 25.6145, 27.0918, 23.8632, 24.1063, 24.3094, 14.6504, 21.4315,
                                       20.291, 19.1073, 19.1438, 17.388, 24.393, 17.091),
@@ -155,7 +158,6 @@ mtext(xlab, 1, 2.5, cex = 1.1, font = 2)
 mtext(ylab, 2, 2.5, cex = 1.1, font = 2)
 
 #lines(rep(approx(tab$P.lim, tab$catch, 0.5)$y, 2) / 1000, c(0, 0.5), lwd = 1.5, col = "black", lty = "solid")
-
 #points(approx(tab$P.lim, tab$catch, 0.5)$y / 1000, 0.5, pch = 21, bg = "black", cex = 1.5)
 #text(approx(tab$P.lim, tab$catch, 0.5)$y / 1000, 0.25, paste0("= ", round(approx(tab$P.lim, tab$catch, 0.5)$y), " t"), pos = 4, cex = 1.4)
 #lines(rep(approx(tab$P.usr, tab$catch, 0.5)$y, 2) / 1000, c(0, 0.5), lwd = 1.5, col = "blue", lty = "dashed")

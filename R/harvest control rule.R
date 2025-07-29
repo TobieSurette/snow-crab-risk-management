@@ -1,8 +1,8 @@
 library(gulf.data)
 library(gulf.graphics)
 
-language <- language("fr")
-language <- "bilingual"
+language <- language("en")
+#language <- "bilingual"
 FSAR <- TRUE
 
 year <- 2024
@@ -107,9 +107,9 @@ text(125, 100 * 0.45, expression('F'[max]*' = 45%'), pos = 3, cex = 1.1)
 
 lines(rep(biomass/1000, 2), c(0, 100 * ER), lty = "dashed", lwd = 2, col = "blue2")
 lines(c(0, biomass/1000), rep(100 * ER,2), lty = "dashed", lwd = 2, col = "blue2")
-if (language == "french") text(biomass/1000 + 2.5, 50 * ER, expression('B'[2024]*' = 51 786 t'), pos = 1, srt = 90)
-if (language == "english") text(biomass/1000 + 2.5, 50 * ER, expression('B'[2024]*' = 51,786 t'), pos = 1, srt = 90) 
-text(0.5*biomass/1000, 100*ER, expression('F'[2024]*' = 35.73%'), pos = 3, srt = 0)
+if (language == "french") text(biomass/1000 + 2.5, 50 * ER, expression('B'[2025]*' = 51 786 t'), pos = 1, srt = 90)
+if (language == "english") text(biomass/1000 + 2.5, 50 * ER, expression('B'[2025]*' = 51,786 t'), pos = 1, srt = 90) 
+text(0.5*biomass/1000, 100*ER, expression('F'[2025]*' = 35.73%'), pos = 3, srt = 0)
 
 box(col = "grey50")
 
